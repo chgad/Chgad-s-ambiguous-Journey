@@ -10,7 +10,7 @@ class Enum :
         self.n = int
         pass
     def rang(self):
-        """ creates a list of int's from 0 up to n-1 --> n numbers"""
+        """ creates a list of int's from 0 up to n-1 --> n numbers like range()"""
         a = self.n - 1
         list = []
         while a>=0 :
@@ -50,12 +50,7 @@ class Account :
                 c +=1
                 print("Access Denied! Try again. %i/3 Attempts" % c)
         
-Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
-print(Sam.accounts)
-Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
-print(Tina.accounts)
-Sam.storing_pw()
-#Sam.pw_request()
+
 def numbers():
     natrual_number(10)
 def natrual_number(n):
@@ -77,10 +72,20 @@ def grid():        # n ist zeile
             print("|         |          |")
 
 
-grid()
+Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
+print(Sam.accounts)
+Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
+print(Tina.accounts)
+#Sam.storing_pw()
+#Sam.pw_request()
+#natrual_number(10)
+#numbers()
+#grid()
 
 ran = Enum(10)
 ran = ran.rang()
 print (ran)
-
+cliff = Enum(3)
+cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
+print(cliff1)
 
