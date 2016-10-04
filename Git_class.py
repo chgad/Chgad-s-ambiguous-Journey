@@ -40,4 +40,14 @@ print(Sam.accounts)
 Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
 print(Tina.accounts)
 Sam.storing_pw()
-Sam.pw_request()
+#Sam.pw_request()
+
+def natrual_number(n):
+    a=0
+    List=[]
+    while n>0:
+        a+=1
+        List.append(a)
+        n=n-1
+        print(a)
+natrual_number(10)
