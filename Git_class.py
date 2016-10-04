@@ -4,6 +4,21 @@ Created on 04.10.2016
 @author: Christian
 '''
 
+class Enum :
+    """ Project for understanding certain functions and classes"""
+    def __init__(self, int):
+        self.n = int
+        pass
+    def rang(self):
+        """ creates a list of int's from 0 up to n-1 --> n numbers"""
+        a = self.n - 1
+        list = []
+        while a>=0 :
+            list.append(a)
+            a -=1
+        return list
+
+
 class Account :
     '''
     Ein simpler Account
@@ -41,7 +56,8 @@ Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
 print(Tina.accounts)
 Sam.storing_pw()
 #Sam.pw_request()
-
+def numbers():
+    natrual_number(10)
 def natrual_number(n):
     a=0
     List=[]
@@ -50,4 +66,21 @@ def natrual_number(n):
         List.append(a)
         n=n-1
         print(a)
-natrual_number(10)
+#natrual_number(10)
+numbers()
+def grid():        # n ist zeile
+    k = range(11)
+    for a in k  :
+        if a in [0,5,10]  :
+            print("+ - - - - + - - - - +")
+        else :
+            print("|         |          |")
+
+
+grid()
+
+ran = Enum(10)
+ran = ran.rang()
+print (ran)
+
+
