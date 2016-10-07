@@ -63,19 +63,22 @@ def natrual_number(n):
         print(a)
 #natrual_number(10)
 numbers()
-def grid():        # n ist zeile
-    k = range(11)
-    for a in k  :
-        if a in [0,5,10]  :
-            print("+ - - - - + - - - - +")
-        else :
-            print("|         |          |")
+def grid(z,s,h,w):        # n ist zeile,s spalte, h hight,w width
+    head_a = "+" + " - "*w
+    ele_a  = "|" + "   "*w
+    while z>0 :
+        print(head_a*s , "+")
+        for i in range(h):
+            print(ele_a*s + ' |' )
+        z -= 1
+    if z == 0 :
+        print(head_a*s , "+")
+        
 
-
-Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
-print(Sam.accounts)
-Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
-print(Tina.accounts)
+#Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
+#print(Sam.accounts)
+#Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
+#print(Tina.accounts)
 #Sam.storing_pw()
 #Sam.pw_request()
 #natrual_number(10)
@@ -85,7 +88,8 @@ print(Tina.accounts)
 ran = Enum(10)
 ran = ran.rang()
 print (ran)
-cliff = Enum(3)
-cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
-print(cliff1)
+#cliff = Enum(3)
+#cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
+#print(cliff1)
+grid(5,5,4,4)
 
