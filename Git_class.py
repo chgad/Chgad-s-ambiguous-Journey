@@ -3,6 +3,8 @@ Created on 04.10.2016
 
 @author: Christian
 '''
+import tkinter
+import swampy.TurtleWorld
 
 class Enum :
     """ Project for understanding certain functions and classes"""
@@ -96,5 +98,5 @@ print (ran)
 #cliff = Enum(3)
 #cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
 #print(cliff1)
-grid(-4,4.5,4,4)
+grid(4,4,4,4)
 
