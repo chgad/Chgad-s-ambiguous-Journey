@@ -9,16 +9,27 @@ class Enum :
     def __init__(self, int):
         self.n = int
         pass
+    
+    def natrual_number(self):
+        a=0
+        List=[]
+        while self.n >0:
+            a+=1
+            List.append(a)
+            self.n-=1
+        return List
+    
     def rang(self):
         """ creates a list of int's from 0 up to n-1 --> n numbers like range()"""
-        a = self.n - 1
+        #print(natrual_number())
+        
+        
+        '''a = self.n - 1
         list = []
         while a>=0 :
             list.append(a)
             a -=1
-        return list
-
-
+        return list'''
 class Account :
     '''
     Ein simpler Account
@@ -51,30 +62,24 @@ class Account :
                 print("Access Denied! Try again. %i/3 Attempts" % c)
         
 
-def numbers():
-    natrual_number(10)
-def natrual_number(n):
-    a=0
-    List=[]
-    while n>0:
-        a+=1
-        List.append(a)
-        n=n-1
-        print(a)
-#natrual_number(10)
-numbers()
-def grid(z,s,h,w):        # n ist zeile,s spalte, h hight,w width
-    head_a = "+" + " - "*w
-    ele_a  = "|" + "   "*w
-    while z>0 :
-        print(head_a*s , "+")
-        for i in range(h):
-            print(ele_a*s + ' |' )
-        z -= 1
-    if z == 0 :
-        print(head_a*s , "+")
-        
 
+def grid(z,s,h,w):                  # n ist zeile,s spalte, h hight,w width
+    if (type(z),type(s),type(h),type(w)) == (int,int,int,int):
+        if z>0 and s>0 and h>0 and w>0:
+            head_a = "+" + " - "*w          #Trenner design (horizontal)
+            ele_a  = "|" + "   "*w          #Trenner design (vertikal)
+            while z>0 :                     # loop über Zeilen
+                print(head_a*s , "+")
+                for i in range(h):          # loop über höhe der Kästen
+                    print(ele_a*s + ' |' )
+                z -= 1
+            if z == 0 :                     # Abschluss des Rasters
+                print(head_a*s , "+")
+        else :
+            print("Please only enter positive integers!")
+    else :
+        print("Please enter integers only!")
+        
 #Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
 #print(Sam.accounts)
 #Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
@@ -86,10 +91,10 @@ def grid(z,s,h,w):        # n ist zeile,s spalte, h hight,w width
 #grid()
 
 ran = Enum(10)
-ran = ran.rang()
+ran = ran.natrual_number()
 print (ran)
 #cliff = Enum(3)
 #cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
 #print(cliff1)
-grid(5,5,4,4)
+grid(-4,4.5,4,4)
 
