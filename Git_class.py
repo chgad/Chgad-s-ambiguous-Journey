@@ -3,9 +3,20 @@ Created on 04.10.2016
 
 @author: Christian
 '''
-import tkinter
-import swampy.TurtleWorld
-
+from math import *
+class Vector :
+    def __init__(self,x,y,z) :
+        self.x = x
+        self.y = y
+        self.z = z
+    def __add__(self,other):
+        sum_x = self.x + other.x
+        sum_y = self.y + other.y
+        sum_z = self.z + other.z
+        return Vector(sum_x,sum_y,sum_z)
+    def distance(self):
+        dis = sqrt(self.x**2 + self.y**2 + self.z**2)
+        return dis
 class Enum :
     """ Project for understanding certain functions and classes"""
     def __init__(self, int):
@@ -32,6 +43,19 @@ class Enum :
             list.append(a)
             a -=1
         return list'''
+class n_Dim_Vector(Vector):
+    
+    def __init__(self,*args):
+        # i 'd like to creat a class, which can handle any n- dimensional vector
+        '''First idea : self.components= args
+                    for i in sef.components and k in range(len(self.components)) :
+                        x_k = i
+        in this case i is the real value of each komponent and k just declars which komponent it is (x_0, x_1 ,...)'''
+    
+    def print_Vector(self):                #tests to be done
+        for k in range(len(self.magni)) :
+            print("x_%i =" % k , self.x_k)'''
+            
 class Account :
     '''
     Ein simpler Account
@@ -91,12 +115,20 @@ def grid(z,s,h,w):                  # n ist zeile,s spalte, h hight,w width
 #natrual_number(10)
 #numbers()
 #grid()
+args=(1,2,3,4,5,6,7,8,9)
+a= n_Dim_Vector(args)
 
+
+
+'''CLASS : Enum test'''
 ran = Enum(10)
 ran = ran.natrual_number()
 print (ran)
-#cliff = Enum(3)
-#cliff1=[method for method in dir(cliff) if callable(getattr(cliff, method))]
-#print(cliff1)
+
+
 grid(4,4,4,4)
+'''CLASS : Vector test'''
+#a = Vector(1, 1, 2)
+#b = Vector(-1,-1,-2)
+#print(a.distance())
 
