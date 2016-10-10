@@ -54,7 +54,7 @@ class n_Dim_Vector(Vector):
     
     def print_Vector(self):                #tests to be done
         for k in range(len(self.magni)) :
-            print("x_%i =" % k , self.x_k)'''
+            print("x_%i =" % k , self.x_k)
             
 class Account :
     '''
@@ -124,7 +124,6 @@ a= n_Dim_Vector(args)
 ran = Enum(10)
 ran = ran.natrual_number()
 print (ran)
-
 
 grid(4,4,4,4)
 '''CLASS : Vector test'''
