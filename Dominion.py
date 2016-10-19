@@ -140,10 +140,6 @@ class Deck :
 
 s=Deck("New One","Basics")
 
-mcard=input("Monetary Cards pls !")
-vcard=input("Victory Point Cards pls!")
-ncard=input("Normal Cards pls!")
-
 s.build(mcard,vcard,ncard)
 print(s.m_cards)
 print(s.v_cards)
