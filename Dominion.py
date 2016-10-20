@@ -6,8 +6,6 @@ class Card(metaclass=ABCMeta):
     This Abstract Class is used to only creat certain cards with at least the following
     '''
 
-
-
     @abstractmethod
     def name(self):         #for later accessing the name of each card
         pass
@@ -44,6 +42,7 @@ class Monetary_Card(Card) :
         self.effect = effect
         self.v_points = v_points
         self.duration = duration
+        self.id = None          # this id will later be used for an easier Database referencing
 
     def name(self):
         return self.name
@@ -64,9 +63,12 @@ class Monetary_Card(Card) :
             return 0
     def buy(self):
         return self.buy
-    def no_abstract(self):
-        return "not abstract"
-
+    def gen_id(self):
+       '''
+       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+       not by codeing it in to the database
+       '''
+        pass
 class Point_card(Card) :
 
     '''
@@ -94,7 +96,12 @@ class Point_card(Card) :
         return self.v_points
     def duration(self):
             return self.duration
-
+    def gen_id(self):
+       '''
+       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+       not by codeing it in to the database
+       '''
+        pass
 class Norm_Card (Card):
     '''
     The usual Card Type most of the cards will be
@@ -121,7 +128,12 @@ class Norm_Card (Card):
         return self.v_points
     def duration(self):
             return self.duration
-
+    def gen_id(self):
+       '''
+       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+       not by codeing it in to the database
+       '''
+        pass
 class Deck :
     def __init__(self,name,editions):
         self.name = name
@@ -129,7 +141,7 @@ class Deck :
         self.m_cards=[]
         self.v_cards=[]
         self.n_cards=[]
-
+        self.id = None
     def build(self,m_input,v_input,n_input):
         while (m_input and v_input and n_input) != "Q" :        #further work to be done for "endless" appendation to the classes cards lists
 
@@ -137,8 +149,39 @@ class Deck :
             self.v_cards.append(v_input)
             self.n_cards.append(n_input)
 
+    def gen_id(self):
+        '''
+        This method will be invoked right after generating a card--> intendet to register each Deck by hand in the Programm;
+        not by codeing it in to the database
+        '''
+        pass
+
+def new_cardtype(x,y,z):
+    ''' A function to creat a new subclass of Card for future releases '''
+    pass
+
+def display():
+    '''
+    should provide a Global sight of the later GUI to display all Panels with its infos . Ex.: display selected Card type,
+    all cards which have not been added of this type ,the availabel editions of the game , The current or other decks, all selected cards.
+    '''
+    pass
+def acces_card():
+    '''
+    A method to get the needed data of the selected card, convert it and acces the Card_DB, read the other data from it to send it to display()
+     or other functions that need the data.
+    '''
+    pass
+
 
 s=Deck("New One","Basics")
+
+
+
+
+
+
+
 
 s.build(mcard,vcard,ncard)
 print(s.m_cards)
