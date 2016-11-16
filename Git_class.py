@@ -44,14 +44,19 @@ class Enum :
             a -=1
         return list'''
 class n_Dim_Vector(Vector):
-    
+
     def __init__(self,*args):
         # i 'd like to creat a class, which can handle any n- dimensional vector
         '''First idea : self.components= args
                     for i in sef.components and k in range(len(self.components)) :
                         x_k = i
         in this case i is the real value of each komponent and k just declars which komponent it is (x_0, x_1 ,...)'''
-    
+        self.components= args
+        self.k = 0
+        for i in self.components:           #counts the dimension of the vector
+            self.k +=1
+        self.x_h= (i for i in self.components)
+
     def print_Vector(self):                #tests to be done
         for k in range(len(self.magni)) :
             print("x_%i =" % k , self.x_k)
@@ -106,7 +111,7 @@ def grid(z,s,h,w):                  # n ist zeile,s spalte, h hight,w width
     else :
         print("Please enter integers only!")
         
-#Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
+Sam = Account("Sam","123","01.01.00","europe","test@aox.com")
 #print(Sam.accounts)
 #Tina = Account("Tina","456","01.01.00","Asia","test2@aox.com")
 #print(Tina.accounts)
@@ -115,13 +120,10 @@ def grid(z,s,h,w):                  # n ist zeile,s spalte, h hight,w width
 #natrual_number(10)
 #numbers()
 #grid()
-args=(1,2,3,4,5,6,7,8,9)
-a= n_Dim_Vector(args)
-
 
 
 '''CLASS : Enum test'''
-ran = Enum(10)
+ran = Enum(2)
 ran = ran.natrual_number()
 print (ran)
 
@@ -130,4 +132,18 @@ grid(4,4,4,4)
 #a = Vector(1, 1, 2)
 #b = Vector(-1,-1,-2)
 #print(a.distance())
+v = n_Dim_Vector(1,2)
+print(v.components)
+print(v.x_h)
+print("Test")
 
+
+# Riemann reihe
+
+def rieman(n):
+    sum = 0
+    for n in range(n):
+        k=(-1)** n*(1/(n+1))
+        print(k)
+        sum += k
+    return sum
