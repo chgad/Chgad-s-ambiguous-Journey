@@ -64,10 +64,10 @@ class Monetary_Card(Card) :
     def buy(self):
         return self.buy
     def gen_id(self):
-       '''
-       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
-       not by codeing it in to the database
-       '''
+        '''
+        This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+        not by codeing it in to the database
+        '''
         pass
 class Point_card(Card) :
 
@@ -97,10 +97,10 @@ class Point_card(Card) :
     def duration(self):
             return self.duration
     def gen_id(self):
-       '''
-       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
-       not by codeing it in to the database
-       '''
+        '''
+        This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+        not by codeing it in to the database
+        '''
         pass
 class Norm_Card (Card):
     '''
@@ -129,25 +129,26 @@ class Norm_Card (Card):
     def duration(self):
             return self.duration
     def gen_id(self):
-       '''
-       This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
-       not by codeing it in to the database
-       '''
+        '''
+        This method will be invoked right after generating a card--> intendet to register each card by hand in the Programm;
+        not by codeing it in to the database
+        '''
         pass
 class Deck :
     def __init__(self,name,editions):
         self.name = name
         self.editions = editions        # The plan is to get an input which is mapped into a list.
-        self.m_cards=[]
-        self.v_cards=[]
-        self.n_cards=[]
+        self.m_cards={}
+        self.v_cards={}
+        self.n_cards={}
         self.id = None
     def build(self,m_input,v_input,n_input):
-        while (m_input and v_input and n_input) != "Q" :        #further work to be done for "endless" appendation to the classes cards lists
+        # look_up_card(m_input) should look for the selected card an get it's attributes (cost, name and oters and
+        #  return a tuple
+        for n,c in look_up_card()
 
-            self.m_cards.append(m_input)
-            self.v_cards.append(v_input)
-            self.n_cards.append(n_input)
+        while         #further work to be done for "endless" appendation to the classes cards lists
+
 
     def gen_id(self):
         '''
@@ -155,6 +156,44 @@ class Deck :
         not by codeing it in to the database
         '''
         pass
+
+class Mytupel(tuple):
+    def __init__(self,tuple):
+        self.t = tuple
+        if len(self.t)>2:
+            self.t=()
+            #raise Initiation error                 comming soon, to make sure the tuple is just consisting of 2 variables
+    def __lt__(self, other):
+        if self.t[1]< other.t[1]:
+            return -1
+
+    def __gt__(self, other):
+        if self.t[1] > other.t[1]:
+            return 1
+    def __eq__(self, other):
+        if self.t[1]== other.t[1]:
+            return 0
+
+
+def card_sort(adict):
+    '''  A small yet use full function which takes a dictonary as variable.
+    This dictionary get's "destructed" in to Key,Value Tuples which in the next line get mapped into Mytuples.
+    The second mapping makes it possible for the bubble sort to evaluate by second argument , the cost of a card.
+    The return value is the now a sorted list (high --> low) with Mytuple tuples as items.'''
+    adict = adict.items()
+    adict = [ Mytupel(k) for k in adict ]
+    for a in range(len(adict)-1,0,-1):
+        for i in range(a):
+            if adict[i] < adict[i+1]:
+                temp = adict[i]
+                adict[i] = adict[i+1]
+                adict[i+1] = temp
+    return adict
+
+
+
+
+
 
 def new_cardtype(x,y,z):
     ''' A function to creat a new subclass of Card for future releases '''
@@ -183,7 +222,7 @@ s=Deck("New One","Basics")
 
 
 
-s.build(mcard,vcard,ncard)
+#s.build(mcard,vcard,ncard)
 print(s.m_cards)
 print(s.v_cards)
 print(s.n_cards)
