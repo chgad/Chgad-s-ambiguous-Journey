@@ -68,6 +68,32 @@ def take_order():
     else :
             print("Thanks for your Orders. You ordered:",ordered)
 
+class Four_wins:
+    def __init__(self,):
+
+        self.field = [["", "", "", "", "", "", ""],
+                 ["", "", "", "", "", "", ""],
+                 ["", "", "", "", "", "", ""],
+                 ["", "", "", "", "", "", ""],
+                 ["", "", "", "", "", "", ""],
+                 ["", "", "", "", "", "", ""]
+                  ]
+    #def check(column):
+    def player_1(column):
+        pointer= "x"
+
+    def player_2(self,column):
+        pointer = "o"
+        for i in range(6):
+            if self.field[i][column-1] is not "":
+                pass
+            else:
+                self.field[i][column] = pointer#
+                break
+        return self.field
+
+win= Four_wins().player_2(2)
+print(win)
 pars_File("lists.txt")
 #take_order()
 
