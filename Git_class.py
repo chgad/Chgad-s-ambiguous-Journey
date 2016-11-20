@@ -94,7 +94,7 @@ class Account :
         
 
 
-def grid(z,s,h,w):                  # n ist zeile,s spalte, h hight,w width
+def grid(z,s,h,w):                          # n ist zeile,s spalte, h hight,w width
     if (type(z),type(s),type(h),type(w)) == (int,int,int,int):
         if z>0 and s>0 and h>0 and w>0:
             head_a = "+" + " - "*w          #Trenner design (horizontal)

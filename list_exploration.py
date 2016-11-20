@@ -26,8 +26,8 @@ print("'a b c'exists %i times" % x)
 def read_file(filename):
     ''' A simple reading function. Needs the name of the file to be read as parameter.
     returns the given text as string.
-    :param filename:
-    :return:
+    :param: filename
+    :return: text as string
     '''
     f = open(filename, "r")
     text = f.read()
@@ -38,7 +38,7 @@ def pars_File(filename):
     ''' This function parses a file. It takes one parameter , the files name , converts it to a string, gets it tp be
     read an then does it's magic. The return is a List of (str, int) Tuples where the str's are the words; sorted by
     Alphabet and cases, an the int's the number of occurences in the file.
-    :param filename:
+    :param: filename
     :return:
     '''
 
@@ -70,7 +70,6 @@ def take_order():
 
 class Four_wins:
     def __init__(self,):
-
         self.field = [["", "", "", "", "", "", ""],
                  ["", "", "", "", "", "", ""],
                  ["", "", "", "", "", "", ""],
@@ -79,22 +78,27 @@ class Four_wins:
                  ["", "", "", "", "", "", ""]
                   ]
     #def check(column):
+    def show_field(self):
+        for i in self.field :
+            print(i)
+
     def player_1(column):
         pointer= "x"
 
     def player_2(self,column):
         pointer = "o"
-        for i in range(6):
-            if self.field[i][column-1] is not "":
+        for i in range(5,-1,-1):
+            if self.field[i][column] is not "":
                 pass
             else:
                 self.field[i][column] = pointer#
                 break
-        return self.field
+        return self.show_field()
 
 win= Four_wins().player_2(2)
 print(win)
-pars_File("lists.txt")
+#pars_File("lists.txt")
 #take_order()
 
 t=0
+
