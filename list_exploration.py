@@ -77,7 +77,8 @@ class Four_wins:
                  ["", "", "", "", "", "", ""],
                  ["", "", "", "", "", "", ""]
                   ]
-    #def check(column):
+    def check():
+        pass
     def show_field(self):
         for i in self.field :
             print(i)
@@ -95,8 +96,12 @@ class Four_wins:
                 break
         return self.show_field()
 
-win= Four_wins().player_2(2)
-print(win)
+win= Four_wins()
+print(type(win))
+win.player_2(2)
+for i in range(4):
+    print("")
+win.player_2(2)
 #pars_File("lists.txt")
 #take_order()
 
