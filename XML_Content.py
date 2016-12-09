@@ -80,7 +80,7 @@ def create_xml_glossary(titles_text):                #creats a xml-cont file nam
             xml="""<list>
       <glossentry>
         <glossTerm>%s</glossTerm>
-        <glossDef><![CDATA<p>[%s</p>]]></glossDef>
+        <glossDef><![CDATA[<p>%s</p>]]></glossDef>
         <glossSynonyms/>
       </glossentry>""" % (k,v)
             new.write(xml)
