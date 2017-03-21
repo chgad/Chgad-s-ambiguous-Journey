@@ -102,7 +102,7 @@ win.player_2(2)
 for i in range(4):
     print("")
 win.player_2(2)
-#pars_File("lists.txt")
+pars_File("lists.txt")
 #take_order()
 
 t=0

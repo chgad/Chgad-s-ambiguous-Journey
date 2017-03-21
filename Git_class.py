@@ -4,6 +4,10 @@ Created on 04.10.2016
 @author: Christian
 '''
 from math import *
+
+
+
+
 class Vector :
     def __init__(self,x,y,z) :
         self.x = x
