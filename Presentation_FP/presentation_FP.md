@@ -58,7 +58,7 @@ Gemütlich : Ok, was sehen wir hier. That's where the magic happens.
 	
 * Wie ich mir das dachte?
 * Reicht die reine Code Doku?
-	*Wenn er schon so fragt : Nein
+	* Wenn er schon so fragt : Nein
 
 ---
 	
