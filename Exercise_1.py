@@ -1,5 +1,5 @@
-import sequence
-import Git_class
+
+
 def max(a,b):
     if a>b :
         return a
