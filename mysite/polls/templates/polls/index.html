@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<body>
+{% if latest_question_list %}
+    <p>{{ latest_question_list }}</p>
+    <ul>
+        {% for question in latest_question_list %}
+    <li>
+        <a href="{% url 'polls:detail' question.id %}"> {{ question.question_text }}</a>
+    </li>
+        {% endfor %}
+    </ul>
+    {% comment %}<ul>
+        {%  for question in latest_question_list  %}
+            <li>
+                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+            </li>
+        {% endfor %}
+    </ul>{% endcomment %}
+{% else %}
+    <p> No polls are available.</p>
+{% endif %}
+</body>

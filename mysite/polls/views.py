@@ -3,8 +3,35 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 # Project imports
 from .models import Question, Choice
+
+
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions. """
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+
+
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'polls/detail.html'
+
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        :return: 
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now())
+
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
 
 
 # def index(request):
@@ -29,36 +56,12 @@ from .models import Question, Choice
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'polls/results.html', {'question': question})
 
-# class IndexView(generic.ListView):
-#     template_name = 'polls/index.html'
-#     context_object_name = 'latest_question_list'
-#
-#     def get_queryset(self):
-#         """Return the last five published questions. """
-#         return Question.objects.order_by('pub_date')[:5]
-#
-#     def sort_by_list(self):
-#         listt = [2,1]
-#         photo_list = []
-#         for i in listt:
-#             photo_list.append(Question.objects.get(pk=i))
-#         return photo_list
 
-def sorted_quest(request):
-    quest_list = []
-    for a in [2, 1]:
-        quest_list.append(Question.objects.get(pk=a))
-    return render(request, 'polls/index.html', {'latest_question_list': quest_list})
-
-
-class DetailView(generic.DetailView):
-    model = Question
-    template_name = 'polls/detail.html'
-
-
-class ResultsView(generic.DetailView):
-    model = Question
-    template_name = 'polls/results.html'
+# def sorted_quest(request):
+#     quest_list = []
+#     for a in [2, 1]:
+#         quest_list.append(Question.objects.get(pk=a))
+#     return render(request, 'polls/index.html', {'latest_question_list': quest_list})
 
 
 def vote(request, question_id):
@@ -75,6 +78,3 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question_id, )))
-
-
-
