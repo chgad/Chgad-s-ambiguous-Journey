@@ -55,17 +55,22 @@ def maaax(adict):
 
 
 dict = {"a": 1, "b": 2, "s": 15, "k": 1, "t": 55, "w": 9}
-
+list_dict = {"a": [1, 2], "b": [3, 4]}
                             # compare by second variable in tuple
+for a,b in list_dict.items() :
+    print(a,b)
 
-print(maaax(dict))
 
-print(maax([1,2,4,2,6,9
-            ]))
-
-a = Mytupel(("a",3))
-b = Mytupel(("b",7))
-c = Mytupel(("c",1))
-alist = [a, b, c]
+# print(maaax(dict))
+#
+# print(maax([1,2,4,2,6,9
+#             ]))
+#
+# a = Mytupel(("a",3))
+# b = Mytupel(("b",7))
+# c = Mytupel(("c",1))
+# alist = [a, b, c]
 #print(maaax(alist))
 #print(alist)
+
+jdjasdj
